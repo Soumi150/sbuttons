@@ -1,4 +1,4 @@
-name: auto-reply
+name: auto reply to pull requests and issues
 on:
   pull_request:
     types: [opened]
@@ -14,5 +14,8 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             github.issues.createComment({
-              body: 'Thanks for contributing. We will look into it shortly.'
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: ' Thanks for contributing.We will look into it shortly'
             })
