@@ -1,6 +1,6 @@
 name: auto-reply
 on:
-  issues:
+  pull_request:
     types: [opened]
     branches:
       -master
